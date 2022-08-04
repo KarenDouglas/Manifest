@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-// create schema
-
-const {Schema } = mongoose
+// create schema using mongoose
+const { Schema } = mongoose;
 
 const blogSchema = new Schema({
     title: {
@@ -15,13 +14,9 @@ const blogSchema = new Schema({
     body:{
         type: String,
         required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now
     }
-
-});
+   
+}, { timestamps: true});
 
 // create model
 const Blog = mongoose.model('Blog', blogSchema);
