@@ -1,46 +1,23 @@
 const express= require('express');
-const Blog = require('../models/Blog')
+
+const {blogs_get, blog_get, blogs_post, blog_delete, blog_patch} =  require('../controllers/blogControllers');
+
+
 
 const router = express.Router();
 
 //Get all Blogs
-router.get('/', (req, res) => {
-    res.json({mssg: "Get all Blogs..."})
-});
+router.get('/', blogs_get);
 
 //GET single blog
-router.get('/:id', (req, res) => {
-    res.json({mssg: "Get single Blog..."})
-});
+router.get('/:id',blog_get);
 
 //POST  a new Blog
-router.post('/', async(req, res) => {
-    const { title, author, body } = req.body
-     try{
-        // the blog constant stores the response and becomes the new doc
-        const blog = await Blog.create({
-            title,
-            author,
-            body,
-        })
-         res.status(200).json(blog)
-
-     }catch(error){
-        // send status codes for more info
-        res.status(400).json({error: error.message})
-     }
-    
-    
-
-});
+router.post('/', blogs_post);
 
 // Delete a Blog
-router.delete('/:id', (req, res) => {
-    res.json({mssg: "delete a Blog..."})
-});
+router.delete('/:id', blog_delete);
 
 // Edit a Blog
-router.patch('/:id', (req, res) => {
-    res.json({mssg: "editing a Blog..."})
-});
+router.patch('/:id', blog_patch);
 module.exports = router;
