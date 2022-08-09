@@ -1,8 +1,9 @@
 // .env  loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based
-require('dotenv').config()
-const blogRoutes = require('./routes/blog')
-const mongoose = require('mongoose')
-const express = require('express')
+require('dotenv').config();
+const blogRoutes = require('./routes/blog');
+const mongoose = require('mongoose');
+const express = require('express');
+const multer = require('multer');
 
 const app = express();
 

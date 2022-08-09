@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Roboto:ital,wght@0,400;1,100;1,400;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+/* -------------------*/
+/* CUSTON PROPERTIES */
+/* -----------------*/
+
+:root{
+
+  /*colors*/
+  --clr-dark: 280 75% 9%;
+  --clr-dark-grey: 280 3% 19%;
+  --clr-white:  60 37% 87%;
+  --clr-accent-green:169 82% 62%;
+  --clr-accent-peach:  358 40% 63%;
+  --gap: 2rem;
+
+  /* font-sizes*/
+  --fs-900: 9.375rem;
+  --fs-400: 1.125rem;
+  --fs-100: 0.875rem;
+
+ /* font families*/
+ --ff-cursive:  'Courgette', cursive;
+ --ff-roboto: 'Roboto', sans-serif;
+
+}
+
+
+
+
+
+
 /* --------*/
 /* RESET */
 /* ------*/
@@ -11,6 +43,7 @@
 }
 
 body,
+header,
 h1,
 h2,
 h3,
@@ -22,12 +55,28 @@ picture {
   margin: 0;
   
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+p{
+  font-weight: 400;
+}
+ul {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
 
 /*SET UP THE BODY*/
 
 body{
   line-height: 1.5;
   min-height: 100vh;
+  font-family: var(--ff-roboto);
+  font-size: var(--fs-400);
 }
 
 /*MAKE IMG EASIER TO WORK WITH*/
@@ -62,3 +111,151 @@ select {
   }
 }
 
+/*-----------------*/
+/* UTILITY CLASSES */
+/*-----------------*/
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.grid{
+  display: grid;
+  gap: var(--gap, 1rem);
+
+}
+/* the strange code selects everything that has a sibling before it*/
+.flow > * + * {
+margin-top: 1rem;
+padding-top: 2em;
+outline: 1px solid red;
+}
+.container {
+  padding-inline: 2em;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+
+}
+
+.test {
+  background-color: aqua;
+}
+
+
+/*COLORS*/
+
+.bg-dark-gradient{
+  background: linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%);
+}
+
+.bg-dark{
+  background-color: hsl(var(--clr-dark));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-dark-grey{
+  background-color: hsl(var(--clr-dark-grey));
+}
+
+.bg-accent-green  {
+  background-color: hsl(var(--clr-accent-green));
+}
+
+.bg-accent-peach {
+  background-color: hsl(var(--clr-accent-peach));
+}
+
+.text-dark{
+ color: hsl(var(--clr-dark));
+}
+
+.text-white {
+ color: hsl(var(--clr-white));
+}
+
+.text-dark-grey{
+ color: hsl(var(--clr-dark-grey));
+}
+
+.text-accent-green  {
+color: hsl(var(--clr-accent-green));
+}
+
+.text-accent-peach {
+ color: hsl(var(--clr-accent-peach));
+}
+
+header{
+  margin: 0;
+ 
+}
+html{
+  background-color: hsl(var(--clr-dark));
+}
+
+
+/* TYPOGRAPHY*/
+
+.font-serif-bold{
+  font-family: var(--ff-roboto);
+  font-size:  var(--fs-900);
+}
+
+.font-serif-regular{
+  font-family: var(--ff-roboto);
+  font-size:  var(--fs-400);
+}
+.font-serif-light{
+  font-family: var(--ff-roboto);
+  font-size:  var(--fs-100);
+}
+
+.font-cursive-bold{
+  font-family: var(--ff-cursive);
+}
+
+/*-----------------*/
+/*TEMPLATE SPECIFIC */
+/*-----------------*/
+.content{
+  margin-top: 5em;
+  ;
+}
+.content-title{
+  margin: 2em 0;
+  border: 1px solid hsl(var(--clr-white)/.3);
+  text-align: center;
+  padding: 2rem;
+  max-width: 80rem;
+  margin-inline: auto;
+ 
+
+}
+
+/*--------------*/
+/*Special Styles*/
+/*--------------*/
+.blog-title {
+  min-width: 9em;
+  text-align: center;
+}

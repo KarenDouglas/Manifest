@@ -31,16 +31,19 @@ const Home = () => {
     }  
 
     return (
-        <div className="home">
-            <div className="blogs">
-                {blogs && blogs.map((blog) =>(
-                   <BlogDetails
-                   key={blog._id}
-                   blog={blog}
-                   />
-                ))}
+        <div className="home bg-dark">
+            <div className="content">
+                <h1 className="content-title text-white container font-cursive-bold">Blog</h1>
+                <div className="container flex-column flow" >
+                    {blogs && blogs.map((blog) =>(
+                        <BlogDetails
+                        key={blog._id}
+                        blog={blog}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
+                </div>
        
     )
 }

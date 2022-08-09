@@ -11,6 +11,10 @@ const blogSchema = new Schema({
     author: {
         type: String
     },
+    img:{
+        data: Buffer,
+        contentType: String
+    },
     body:{
         type: String,
         required: true

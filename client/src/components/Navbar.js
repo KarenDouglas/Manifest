@@ -5,14 +5,14 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
     return (
-      <header>
-        <div className="container">
+      <header className=" bg-dark-gradient">
+        <div className="container ">
             <ul>
                 <li>
                     <NavLink
                     to ="/"
                     >
-                    <h1>Home</h1>   
+                    <h1  className=" text-accent-green font-cursive-bold">Home</h1>   
                     </NavLink>
                 </li>
             </ul>
