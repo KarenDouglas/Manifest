@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 
 //components
-import BlogDetails from "../components/BlogDetails";
+import BlogDetails from '../components/BlogDetails';
 
 
 // function to render Home Page
