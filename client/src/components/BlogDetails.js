@@ -1,7 +1,7 @@
 import React from "react";
 
 const BlogDetails = ({blog}) => {
-
+   
     return(
 
         <div className="blog-details container flex-row">
@@ -12,7 +12,7 @@ const BlogDetails = ({blog}) => {
             </div>
             
             <div className="bg-dark container">
-            <p className="text-white ">{blog.body}</p>
+            <p className="text-white ">{blog.snippet}</p>
             <p className="text-accent-peach font-serif-light">{blog.createdAt}</p>
             </div>
             
@@ -20,7 +20,6 @@ const BlogDetails = ({blog}) => {
         </div>
         
     )
-
 }
 
 export default BlogDetails;

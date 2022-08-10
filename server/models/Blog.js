@@ -15,10 +15,18 @@ const blogSchema = new Schema({
         data: Buffer,
         contentType: String
     },
+    snippet:{
+        type: String,
+        required: true
+    },
     body:{
         type: String,
         required: true
+    },
+      featured: {
+        type: Boolean,
     }
+   
    
 }, { timestamps: true});
 

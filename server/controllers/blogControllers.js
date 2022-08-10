@@ -17,7 +17,7 @@ const blogs_get = async(req, res) => {
 
 // POST REQUEST new post
 const blogs_post = async(req, res) => {
-    const { title, author, body } = req.body
+    const { title, author, img, snippet, featured, body } = req.body
 
     // add blog to db
      try{
@@ -25,6 +25,9 @@ const blogs_post = async(req, res) => {
         const blog = await Blog.create({
             title,
             author,
+            img,
+            snippet,
+            featured,
             body,
         })
          res.status(200).json(blog)

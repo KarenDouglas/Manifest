@@ -35,7 +35,7 @@ const Home = () => {
             <div className="content">
                 <h1 className="content-title text-white container font-cursive-bold">Blog</h1>
                 <div className="container flex-column flow" >
-                    {blogs && blogs.map((blog) =>(
+                    {blogs && blogs.map((blog)=>(
                         <BlogDetails
                         key={blog._id}
                         blog={blog}

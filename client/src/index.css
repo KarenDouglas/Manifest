@@ -259,3 +259,11 @@ html{
   min-width: 9em;
   text-align: center;
 }
+
+form input[type=text], textarea, button{ 
+  width: 90%;
+
+}
+textarea{
+  min-height: 20em;
+}
