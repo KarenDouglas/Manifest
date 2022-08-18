@@ -22,29 +22,29 @@ const BlogForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        const formData = new FormData();
+        // const formData = new FormData();
 
-        formData.append("title", title);
-        formData.append("snippet", snippet);
-        formData.append("featured", featured);
-        formData.append("author", author);
-        formData.append("img", fileName);
-        formData.append("body", body);
+        // formData.append("title", title);
+        // formData.append("snippet", snippet);
+        // formData.append("featured", featured);
+        // formData.append("author", author);
+        // formData.append("img", fileName);
+        // formData.append("body", body);
 
 
 
-        // const blog = {
-        //     title,
-        //     author,
-        //     img: image,
-        //     snippet,
-        //     featured,
-        //     body
-        //    }
+        const blog = {
+            title,
+            author,
+            img: image,
+            snippet,
+            featured,
+            body
+           }
 
            const response = await fetch ('http://localhost:4000/api/blog', {
             method: 'POST',
-            body: JSON.stringify(formData),
+            body: JSON.stringify(blog),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -116,19 +116,7 @@ const BlogForm = () => {
                     value={snippet}
                     />
                 </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="file" for="HeaderImage"style={{marginRight: "1.5em"}}>
-                    Upload Image:
-                    </Label>
-                    <Input
-                    id="HeaderImage"
-                    name="file"
-                    type="file"
-                    fileName="img"
-                    onChange={onChangeFile}
-                  
-                    />
-                </FormGroup>
+                
                 <FormGroup check>
                     <Input 
                     name="featured"
