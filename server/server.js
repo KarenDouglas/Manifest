@@ -1,11 +1,19 @@
 // .env  loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based
-require('dotenv').config();
-const blogRoutes = require('./routes/blog');
-const mongoose = require('mongoose');
+
 const express = require('express');
-const multer = require('multer');
+const mongoose = require('mongoose');
+const cors = require('cors')
+require('dotenv').config();
+
+//routes
+const blogRoutes = require('./routes/blog');
+
+
+
 
 const app = express();
+app.use(cors())
+
 
 //middle to recieve requests
 app.use(express.json())
@@ -21,7 +29,9 @@ app.use((req, res, next)=> {
 app.use('/api/blog',blogRoutes);
 
 // connect to db
-mongoose.connect(process.env.MONG_URI)
+mongoose.connect(process.env.MONG_URI, {
+    useNewUrlParser: true
+})
     .then(()=>{
         //listen for requests after Mongodb is connected
         app.listen(process.env.PORT, ()=> {

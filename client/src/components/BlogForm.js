@@ -11,23 +11,40 @@ const BlogForm = () => {
     const [featured, setFeatured]= useState(false);
     const [body, setBody]= useState('');
     const [image, setImage]= useState('');
-    const [ author, setAuthor] = useState('')
-    const [ error, setError] = useState(null)
+    const [ author, setAuthor] = useState('');
+    const [ error, setError] = useState(null);
+    const [fileName, setFileName] = useState('');
+
+    const onChangeFile = (e) => {
+        setFileName(e.target.files[0])
+    }
    
     const handleSubmit = async(e) => {
         e.preventDefault();
-        const blog = {
-            title,
-            author,
-            img: image,
-            snippet,
-            featured,
-            body
-           }
 
-           const response = await fetch ('/api/blog', {
+        const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("snippet", snippet);
+        formData.append("featured", featured);
+        formData.append("author", author);
+        formData.append("img", fileName);
+        formData.append("body", body);
+
+
+
+        // const blog = {
+        //     title,
+        //     author,
+        //     img: image,
+        //     snippet,
+        //     featured,
+        //     body
+        //    }
+
+           const response = await fetch ('http://localhost:4000/api/blog', {
             method: 'POST',
-            body: JSON.stringify(blog),
+            body: JSON.stringify(formData),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -59,7 +76,7 @@ const BlogForm = () => {
 
         <div className="content container text-white">
 
-            <Form className="flex-column" onSubmit={handleSubmit}>
+            <Form className="flex-column" onSubmit={handleSubmit} encType="multipart/form-data">
                 <FormGroup className="flex-column">
                     <Label for="Title">
                     Title:
@@ -100,15 +117,16 @@ const BlogForm = () => {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="HeaderImage"style={{marginRight: "1.5em"}}>
-                    Image:
+                    <Label htmlFor="file" for="HeaderImage"style={{marginRight: "1.5em"}}>
+                    Upload Image:
                     </Label>
                     <Input
                     id="HeaderImage"
                     name="file"
                     type="file"
-                    onChange={(e) => setImage(e.target.value)}
-                    value={image}
+                    fileName="img"
+                    onChange={onChangeFile}
+                  
                     />
                 </FormGroup>
                 <FormGroup check>

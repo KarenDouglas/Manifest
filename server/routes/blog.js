@@ -1,10 +1,21 @@
 const express= require('express');
+const router = express.Router();
+
+var cors = require('cors')
+
+const app = express();
+//to view backend data
+app.use(cors())
+
+
+
+
 
 const {blogs_get, blog_get, blogs_post, blog_delete, blog_patch} =  require('../controllers/blogControllers');
 
 
 
-const router = express.Router();
+
 
 //Get all Blogs
 router.get('/', blogs_get);
@@ -13,7 +24,7 @@ router.get('/', blogs_get);
 router.get('/:id',blog_get);
 
 //POST  a new Blog
-router.post('/', blogs_post);
+router.post('/',blogs_post);
 
 // Delete a Blog
 router.delete('/:id', blog_delete);

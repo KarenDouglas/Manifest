@@ -12,8 +12,7 @@ const blogSchema = new Schema({
         type: String
     },
     img:{
-        data: Buffer,
-        contentType: String
+      type: String
     },
     snippet:{
         type: String,

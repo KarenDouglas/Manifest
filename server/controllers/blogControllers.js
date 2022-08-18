@@ -1,5 +1,17 @@
-
+const multer = require('multer');
 const Blog = require('../models/Blog');
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./client/public/uploads");
+    },
+    filename: (req , file, cb) =>{
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({storage: storage})
+
 // using mongoose to validate objectID for params
 const mongoose = require('mongoose');
 
@@ -16,17 +28,16 @@ const blogs_get = async(req, res) => {
 };
 
 // POST REQUEST new post
-const blogs_post = async(req, res) => {
-    const { title, author, img, snippet, featured, body } = req.body
-
+const blogs_post =(upload.single("img"),  async(req, res) => {
+    const { title, author,snippet, featured, body } = req.body
+    
     // add blog to db
      try{
         // the blog constant stores the response and becomes the new doc
         const blog = await Blog.create({
             title,
             author,
-            img,
-            snippet,
+            img: req.file.originalname,
             featured,
             body,
         })
@@ -36,7 +47,7 @@ const blogs_post = async(req, res) => {
         // send status codes for more info
         res.status(400).json({error: error.message})
      }
-};
+});
 
 // Single Blog Routes
 
