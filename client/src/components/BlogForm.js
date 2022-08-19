@@ -1,10 +1,12 @@
 import React,{useState} from "react";
 import {Form, FormGroup, Label,Input, Button }from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import { useBlogsContext } from "../hooks/useBlogsContext";
 
 
 
 const BlogForm = () => {
+    const {dispatch} = useBlogsContext();
     const navigate = useNavigate();
     const [title, setTitle]= useState('');
     const [snippet, setSnippet]= useState('');
@@ -13,23 +15,14 @@ const BlogForm = () => {
     const [image, setImage]= useState('');
     const [ author, setAuthor] = useState('');
     const [ error, setError] = useState(null);
-    const [fileName, setFileName] = useState('');
 
-    const onChangeFile = (e) => {
-        setFileName(e.target.files[0])
-    }
+
+
    
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        // const formData = new FormData();
-
-        // formData.append("title", title);
-        // formData.append("snippet", snippet);
-        // formData.append("featured", featured);
-        // formData.append("author", author);
-        // formData.append("img", fileName);
-        // formData.append("body", body);
+      
 
 
 
@@ -68,13 +61,14 @@ const BlogForm = () => {
             setBody('')
             setError(null)
             console.log('new blog added', json)
+            dispatch({type: 'CREATE_BLOG', payload: json})
             navigate('/', {replace: true})
           }
 
     }
     return (
 
-        <div className="content container text-white">
+        <div className="content container text-beige">
 
             <Form className="flex-column" onSubmit={handleSubmit} encType="multipart/form-data">
                 <FormGroup className="flex-column">
@@ -140,10 +134,11 @@ const BlogForm = () => {
                     type="textarea"
                     onChange={(e) => setBody(e.target.value)}
                     value={body}
+                    rows="10" 
                     />
                 </FormGroup>
                
-                <button type="submit">Publish</button>
+                <button className="bg-dark text-beige" type="submit">Publish</button>
                 {error && <div>{error}</div>}
 
             </Form>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
+import { useBlogsContext } from "../hooks/useBlogsContext";
 
 
 //components
@@ -7,7 +8,7 @@ import BlogDetails from '../components/BlogDetails';
 
 // function to render Home Page
 const Home = () => {
-    const [blogs, setBlogs] = useState(null)
+   const {blogs, dispatch} = useBlogsContext()
 
    const fetchBlogsData = async() => {
 
@@ -17,7 +18,7 @@ const Home = () => {
         const json = await response.json()
         // check if response is successful
         if(response.ok){
-            setBlogs(json)
+            dispatch({type: 'SET_BLOGS', payload: json})
         }
     }
     
@@ -31,9 +32,9 @@ const Home = () => {
     }  
 
     return (
-        <div className="home bg-dark">
+        <div className="home bg-darkp">
             <div className="content">
-                <h1 className="content-title text-white container font-cursive-bold">Blog</h1>
+                <h1 className="content-title text-beige container font-cursive-bold">Blog</h1>
                 <div className="container flex-column flow" >
                     {blogs && blogs.map((blog)=>(
                         <BlogDetails

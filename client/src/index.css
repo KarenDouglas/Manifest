@@ -133,7 +133,7 @@ select {
 .flow > * + * {
 margin-top: 1rem;
 padding-top: 2em;
-outline: 1px solid red;
+
 }
 .container {
   padding-inline: 2em;
@@ -165,11 +165,11 @@ outline: 1px solid red;
   background: linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%);
 }
 
-.bg-dark{
+.bg-darkp{
   background-color: hsl(var(--clr-dark));
 }
 
-.bg-white {
+.bg-beige {
   background-color: hsl(var(--clr-white));
 }
 
@@ -185,11 +185,11 @@ outline: 1px solid red;
   background-color: hsl(var(--clr-accent-peach));
 }
 
-.text-dark{
+.text-darkp{
  color: hsl(var(--clr-dark));
 }
 
-.text-white {
+.text-beige {
  color: hsl(var(--clr-white));
 }
 
@@ -237,12 +237,9 @@ html{
 /*-----------------*/
 /*TEMPLATE SPECIFIC */
 /*-----------------*/
-.content{
-  margin-top: 5em;
-  ;
-}
+
 .content-title{
-  margin: 2em 0;
+  margin: 0 0 2em 0;
   border: 1px solid hsl(var(--clr-white)/.3);
   text-align: center;
   padding: 2rem;
@@ -261,9 +258,89 @@ html{
 }
 
 form input[type=text], textarea, button{ 
-  width: 90%;
+  width: 100%;
 
 }
 textarea{
   min-height: 20em;
 }
+
+/*Navbar styles*/
+
+/* header li {
+ margin-inline: 5em;
+ 
+}
+
+header ul {
+  display: flex;
+  flex-direction: row;
+  margin-inline: auto;
+  justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+  header ul {
+    display: flex;
+    flex-direction: column;
+   
+
+  }
+  header li {
+    margin-inline: 5em;
+    display: none;
+   }
+} */
+.hru{
+  display: flex;
+  flex-direction: row;
+  margin-inline: 5em;
+ gap: 3em;
+
+}
+.toggleButton{
+  width: 3em;
+  margin-left: 50%;
+ 
+ }
+
+@media only screen and (min-width: 800px) {
+ .toggleButton{
+  display: none;
+
+ }
+
+   
+}
+
+@media only screen and (max-width: 800px) {
+
+  .brand-toggle{
+    display: flex;
+    flex-wrap: nowrap;
+    
+   }
+ 
+  Navbar {
+    display: flex;
+    flex-direction: column;
+   
+  }
+  .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: block;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+.hru {
+  display: none;
+  flex-direction: row;
+  margin-inline: 5em;
+  grid-gap: 3em;
+  gap: 3em;
+}
+
+
+  
+}
+
+
