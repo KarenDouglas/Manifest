@@ -1,8 +1,8 @@
 import React from "react";
 import {useBlogsContext} from '../hooks/useBlogsContext'
 
-//components
-import BlogPost from "../pages/BlogPost";
+
+
 
 const BlogDetails = ({blog}) => {
     const { dispatch } = useBlogsContext();
@@ -31,10 +31,10 @@ const BlogDetails = ({blog}) => {
             <p className="text-accent-peach font-serif-light">{blog.createdAt}</p>
             </div>
             <div className="flex-column">
-            <span className="text-beige"><a href={`http://localhost:3001/blog/${blog._id}`}>read more
+            <button className="text-beige bg-accent-green"><a href={`http://localhost:3001/blog/${blog._id}`}>read more
                     
-                    </a></span>
-                    <span onClick={handleClick}>delete</span>
+                    </a></button>
+                    <span onClick={handleClick}><i class="fa-solid fa-trash fa-2xl text-accent-peach"></i></span>
             </div>
            
          

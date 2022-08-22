@@ -8,20 +8,25 @@ export const blogsReducer = (state, action) => {
     switch (action.type){
         case 'SET_BLOGS':
             return {
-                // the payload is an array of all of the workouts
+                // the payload is an array of all of the blogs
+                blogs: action.payload
+            }
+        case 'SET_BLOG_POST':
+            return {
+             
                 blogs: action.payload
             }
         case 'CREATE_BLOG':
             return {
                 // the payload is an array with one new post added to the array spread
                 
-                blog: [action.payload, state.blogs]
+                blogs: [action.payload, state.blogs]
             }
-            case 'DELETE_BLOG':
-                return {
-                    //filters out the deleted object
-                    blogs: state.blogs.filter((b)=> b._id !== action.payload._id)
-                }
+        case 'DELETE_BLOG':
+            return {
+                //filters out the deleted object
+                blogs: state.blogs.filter((b)=> b._id !== action.payload._id)
+            }
         default:
             return state;
     }  

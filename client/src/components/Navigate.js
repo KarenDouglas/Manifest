@@ -1,25 +1,19 @@
 
-import React, {useState, useEffect} from "react";
+import React from "react";
 
   
   import {
-    Collapse,
-    Navbar,
+      Navbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText,
+    NavLink,   
   } from 'reactstrap';
 
 const Navigate = () => {
 
- const [display , setDisplay] = useState(false)
+
 
  window.addEventListener('load', ()=> {
   const toggleBtn = document.getElementById('btn')
@@ -60,13 +54,13 @@ bar.style.display = 'block'
           <Nav className="me-auto " id="navigationBar" navbar>
             <div className="me-auto hru " id="box" >
             <NavItem>
-              <NavLink href="/"><h2 className="text-beige">Blog</h2></NavLink>
+              <NavLink href="/"><h2 className="text-beige"><i class="fa-solid fa-book-open"/> Blog</h2></NavLink>
             </NavItem>
             <NavItem>
-            <NavLink href="/about"><h2 className="text-beige">About</h2></NavLink>
+            <NavLink href="/about"><h2 className="text-beige"><i class="fa-solid fa-book-open-reader"></i> About</h2></NavLink>
             </NavItem>
             <NavItem>
-            <NavLink href="/add-blog"><h2 className="text-beige">Add Blog</h2></NavLink>
+            <NavLink href="/add-blog"><h2 className="text-beige"><i class="fa-solid fa-plus text-beige"/> Add Blog</h2></NavLink>
             </NavItem>
             </div>
           

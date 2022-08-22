@@ -22,7 +22,23 @@ const blogs_get = async(req, res) => {
 // POST REQUEST new post
 const blogs_post = async(req, res) => {
     const { title, author,snippet, featured, body } = req.body
-    
+    let emptyFields = []
+    if(!title){
+        emptyFields.push('title');
+    }
+    if(!author){
+        emptyFields.push('author');
+    }
+    if(!snippet){
+        emptyFields.push('snippet');
+    }
+    if(!body){
+        emptyFields.push('body');
+    }
+
+    if(emptyFields.length > 0){
+        return res.status(400).json({error: 'Please fill in required empty fields', emptyFields})
+    }
     // add blog to db
      try{
         // the blog constant stores the response and becomes the new doc

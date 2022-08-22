@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {Form, FormGroup, Label,Input, Button }from "reactstrap";
+import {Form, FormGroup, Label,Input }from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import { useBlogsContext } from "../hooks/useBlogsContext";
 
@@ -15,6 +15,7 @@ const BlogForm = () => {
     const [image, setImage]= useState('');
     const [ author, setAuthor] = useState('');
     const [ error, setError] = useState(null);
+    const [ emptyFields, setEmptyFields] = useState([]);
 
 
 
@@ -45,7 +46,7 @@ const BlogForm = () => {
           const json = await response.json();
           if(!response.ok){
             setError(json.error)
-         
+            setEmptyFields(json.emptyFields)
           }  
           if(response.ok){
             if(response.featured){
@@ -60,6 +61,7 @@ const BlogForm = () => {
             setFeatured(false)
             setBody('')
             setError(null)
+            setEmptyFields([])
             console.log('new blog added', json)
             dispatch({type: 'CREATE_BLOG', payload: json})
             navigate('/', {replace: true})
@@ -69,7 +71,7 @@ const BlogForm = () => {
     return (
 
         <div className="content container text-beige">
-
+            {error && <div>{error}</div>}
             <Form className="flex-column" onSubmit={handleSubmit} encType="multipart/form-data">
                 <FormGroup className="flex-column">
                     <Label for="Title">
@@ -82,6 +84,7 @@ const BlogForm = () => {
                     type="text"
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
+                    className = {emptyFields.includes('title')? 'error': ""}
                     />
                 </FormGroup>
                 <FormGroup className="flex-column">
@@ -95,6 +98,7 @@ const BlogForm = () => {
                     type="text"
                     onChange={(e) => setAuthor(e.target.value)}
                     value={author}
+                    className = {emptyFields.includes('author')? 'error': ""}
                     />
                 </FormGroup>
                 <FormGroup  className="flex-column">
@@ -108,6 +112,7 @@ const BlogForm = () => {
                     type="text"
                     onChange={(e) => setSnippet(e.target.value)}
                     value={snippet}
+                    className = {emptyFields.includes('snippet')? 'error': ""}
                     />
                 </FormGroup>
                 
@@ -135,6 +140,7 @@ const BlogForm = () => {
                     onChange={(e) => setBody(e.target.value)}
                     value={body}
                     rows="10" 
+                    className = {emptyFields.includes('body')? 'error': ""}
                     />
                 </FormGroup>
                

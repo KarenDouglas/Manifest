@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 
@@ -8,11 +8,13 @@ import Home from './pages/Home';
 import Navigate from './components/Navigate';
 import AddBlog from './pages/AddBlog';
 import BlogPost from './pages/BlogPost';
+import About from './pages/About';
 
 
 
 
 function App() {
+ 
   return (
     <div className="App">
       <BrowserRouter>
@@ -30,6 +32,10 @@ function App() {
                <Route
               path="/blog/:id"
               element= {<BlogPost/>}
+              />
+              <Route
+              path="/about"
+              element= {<About/>}
               />
           </Routes>
         </div>
