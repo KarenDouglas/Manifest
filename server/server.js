@@ -9,7 +9,7 @@ require('dotenv').config();
 const blogRoutes = require('./routes/blog');
 
 
-
+const PORT = process.env.PORT || 5000
 
 const app = express();
 app.use(cors())
@@ -34,7 +34,7 @@ mongoose.connect(process.env.MONG_URI, {
 })
     .then(()=>{
         //listen for requests after Mongodb is connected
-        app.listen(process.env.PORT, ()=> {
+        app.listen(PORT, ()=> {
             console.log(` connected to db & listening on port ${process.env.PORT}`)
         })
     })
