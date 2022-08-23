@@ -18,7 +18,7 @@ const Home = () => {
         const json = await response.json()
         // check if response is successful
         if(response.ok){
-            dispatch({type: 'SET_BLOGS', payload: json})
+           await dispatch({type: 'SET_BLOGS', payload: json})
         }
     }
     
@@ -29,9 +29,11 @@ const Home = () => {
 
     if (!blogs) {
     return "No blogs to show for now :(";
-    }  
+    } 
+    
 
     return (
+
         <div className="home bg-darkp">
             <div className="content">
                 <h1 className="content-title text-beige container font-cursive-bold">Blog</h1>

@@ -328,6 +328,8 @@ header ul {
     flex-wrap: inherit;
     align-items: center;
     justify-content: space-between;
+
+
 }
 .hru {
   display: none;
@@ -337,7 +339,9 @@ header ul {
   gap: 3em;
 }
 
-
+.snippet {
+  display: none;
+}
   
 }
 

@@ -1,6 +1,9 @@
 import React from "react";
 import {useBlogsContext} from '../hooks/useBlogsContext'
 
+// date fnx
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 
 
 
@@ -26,9 +29,9 @@ const BlogDetails = ({blog}) => {
             <p className="text-accent-green font-serif-light"><em>{blog.author}</em></p>
             </div>
             
-            <div className="bg-darkp container">
+            <div className="bg-darkp container snippet">
             <p className="text-beige ">{blog.snippet}</p>
-            <p className="text-accent-peach font-serif-light">{blog.createdAt}</p>
+            <p className="text-accent-peach font-serif-light">{formatDistanceToNow(new Date(blog.createdAt), {addSuffix: true})}</p>
             </div>
             <div className="flex-column">
             <button className="text-beige bg-accent-green"><a href={`http://localhost:3001/blog/${blog._id}`}>read more

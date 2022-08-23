@@ -51,9 +51,11 @@ const BlogForm = () => {
           if(response.ok){
             if(response.featured){
                 console.log('this is featured')
+
             }else{
                 console.log('not featured')
             }
+           await alert(`adding --- ${json.title}--- to blog page`)
             setTitle('')
             setAuthor('')
             setImage('')
@@ -63,8 +65,9 @@ const BlogForm = () => {
             setError(null)
             setEmptyFields([])
             console.log('new blog added', json)
-            dispatch({type: 'CREATE_BLOG', payload: json})
-            navigate('/', {replace: true})
+             
+           await dispatch({type: 'CREATE_BLOG', payload: json})
+           
           }
 
     }
