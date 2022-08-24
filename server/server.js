@@ -34,7 +34,7 @@ mongoose.connect(process.env.MONGODB_URI||process.env.MONG_URI, {
 })
     .then(()=>{
             if(process.env.NODE_ENV === 'production'){
-               app.use(express.static('client/build'));
+               app.use(express.static('cient/build'));
             }
 
         //listen for requests after Mongodb is connected
