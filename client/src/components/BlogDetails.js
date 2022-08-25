@@ -11,7 +11,7 @@ const BlogDetails = ({blog}) => {
     const { dispatch } = useBlogsContext();
 
    const handleClick = async() => {
-    const response = await fetch("https://manifest-backend.herokuapp.com/api/blog" +blog._id, {
+    const response = await fetch("https://manifest-backend.herokuapp.com/api/blog/" +blog._id, {
         method: 'DELETE'
     });
     const json = await response.json();
