@@ -15,7 +15,7 @@ const [blog, setBlog] = useState({});
    const fetchBlogData = async() => {
 
         
-        const response = await fetch("https://manifest-backend.herokuapp.com/api/blog" +id,);
+        const response = await fetch("https://manifest-backend.herokuapp.com/api/blog/" +id,);
 
         const json = await response.json()
         // check if response is successful
