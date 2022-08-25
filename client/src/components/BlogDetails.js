@@ -11,7 +11,7 @@ const BlogDetails = ({blog}) => {
     const { dispatch } = useBlogsContext();
 
    const handleClick = async() => {
-    const response = await fetch("https://manifest-backend.herokuapp.com/api/blog/" +blog._id, {
+    const response = await fetch("https://manifest-backend.herokuapp.com/api/blog" +blog._id, {
         method: 'DELETE'
     });
     const json = await response.json();
@@ -34,7 +34,7 @@ const BlogDetails = ({blog}) => {
             <p className="text-accent-peach font-serif-light">{formatDistanceToNow(new Date(blog.createdAt), {addSuffix: true})}</p>
             </div>
             <div className="flex-column">
-            <button className="text-beige bg-accent-green"><a href={`https://manifest-backend.herokuapp.com/api/blog/${blog._id}`}>read more
+            <button className="text-beige bg-accent-green"><a href={`http://localhost:3001/blog/${blog._id}`}>read more
                     
                     </a></button>
                     <span onClick={handleClick}><i class="fa-solid fa-trash fa-2xl text-accent-peach"></i></span>
