@@ -13,7 +13,7 @@ const Home = () => {
    const fetchBlogsData = async() => {
 
         // FOR DEV ONLYto be able to run client and server from diff port # I need to add to package.json : "proxy": "http://localhost:4000" 
-        const response = await fetch("http://localhost:4000/api/blog" );
+        const response = await fetch("https://manifest-backend.herokuapp.com/api/blog" );
 
         const json = await response.json()
         // check if response is successful

@@ -36,7 +36,7 @@ const BlogForm = () => {
             body
            }
 
-           const response = await fetch ('http://localhost:4000/api/blog', {
+           const response = await fetch ("https://manifest-backend.herokuapp.com/api/blog", {
             method: 'POST',
             body: JSON.stringify(blog),
             headers: {

@@ -29,7 +29,7 @@ app.use((req, res, next)=> {
 app.use('/api/blog',blogRoutes);
 
 // connect to db
-mongoose.connect(process.env.MONGODB_URI||process.env.MONG_URI, {
+mongoose.connect(process.env.MONG_URI, {
     useNewUrlParser: true
 })
     .then(()=>{
