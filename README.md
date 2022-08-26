@@ -40,6 +40,4 @@ In this project, I learned about:
 
 
 
-## Screen Shots
-![screencapture-file-C-myJsProjects-my-recipe-book-site-MyRecipeBook-index-html-2021-08-31-13_03_11](https://user-images.githubusercontent.com/79128405/131562270-086c18e7-20dd-4f94-9e95-4a7ea726a2b9.png)
 
