@@ -1,6 +1,9 @@
 # Manifest
 A simple full stack blog application. Users can upload and delete posts to MongoDB and display their post on the frontend.
+
 Checkout the website here: https://manifest-ten.vercel.app/
+
+
 ![screencapture-manifest-ten-vercel-app-2022-08-25-21_08_14](https://user-images.githubusercontent.com/79128405/186980804-4eefce4e-7a15-4c05-9396-7109b49def7a.png)
 
 ## Table of Contents
